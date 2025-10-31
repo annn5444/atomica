@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Atomic Adventure</title>
+    <style>
+        body {
+            background-color: #0b0c1a;
+            color: #00e6e6;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #startScreen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0b0c1a, #001f33);
+        }
+
+        #startScreen h1 {
+            font-size: 3em;
+            margin: 0.5em 0;
+            color: #00e6e6;
+            text-shadow: 0 0 10px #00e6e6;
+        }
+
+        #startScreen p {
+            font-size: 1.5em;
+            margin: 0.5em 0 2em 0;
+            color: #99ffff;
+        }
+
+        #startButton {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-family: 'Courier New', monospace;
+            background-color: #00e6e6;
+            color: #0b0c1a;
+            border: 2px solid #00e6e6;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        #startButton:hover {
+            background-color: #00b3b3;
+        }
+
+        /* Game screen: centered text, readable width */
+        #gameScreen {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px 20px;
+            display: none;
+            line-height: 1.6em;
+            background-color: #0b0c1a;
+
+            /* Center text and restrict width for readability */
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            white-space: pre-wrap;
+            /* preserve blank lines */
+        }
+
+        /* Input container styling - centered layout */
+        #inputContainer {
+            display: none;
+            padding: 12px;
+            border-top: 2px solid #00e6e6;
+            background-color: #0b0c1a;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        #userInput {
+            flex: 1;
+            max-width: 700px;
+            background-color: #081018;
+            color: #00e6e6;
+            border: 1px solid #00e6e6;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            padding: 10px;
+            outline: none;
+            caret-color: #00e6e6;
+            border-radius: 4px;
+        }
+
+        #helperLine {
+            color: #99ffff;
+            font-size: 0.9em;
+        }
+
+        /* center each appended message (each line is a div) */
+        #gameScreen>div {
+            text-align: center;
+            margin: 6px 0;
+            white-space: pre-wrap;
+        }
+
+        .prompt {
+            color: #bff;
+        }
+
+        .userAnswer {
+            color: #9ef;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="startScreen">
+        <h1>THE ATOMIC ADVENTURE</h1>
+        <p>By: Ana and Morgan</p>
+        <button id="startButton">Start Adventure</button>
+    </div>
+
+    <div id="gameScreen" role="log" aria-live="polite"></div>
+
+    <div id="inputContainer">
+        <input type="text" id="userInput" placeholder="Type your choice..." autofocus />
+        <div id="helperLine">Press Enter to submit</div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
+
